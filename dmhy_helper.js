@@ -1,9 +1,15 @@
 javascript:(function(){
     var hosts=['share.dmhy.org'];
     if(hosts.indexOf(window.location.host)===-1){
-        window.location.href='share.dmhy.org';
+        window.location.href='https://share.dmhy.org';
         return;
     }    
+    if(document.readyState!=='complete'){
+        setTimeout(function(){
+            alert('请等待页面加载完成');
+        },0);
+        return;
+    }
     if(document.getElementsByClassName('el_remove').length>0){return;}
     var table=document.getElementById('topic_list');
     if(!table){return;}
